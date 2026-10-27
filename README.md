@@ -1,27 +1,31 @@
 ## SHORT DESCRIPTION:
 
-A command-line Employee Record Management System built in Python using SQLite database storage to add, display, and manage employee records, including employee ID, name, and salary, with duplicate ID validation.
+A menu-driven Employee Record Management System built in Python using SQLite database storage to create employee accounts, securely log in, view and manage employee details, search and sort records, generate salary reports, and export employee data to CSV.
 
 ## FEATURES:
 
-1. Add Employee: Accepts employee ID, name, and salary and stores records in the database.
-2. Display Employees: Retrieves and displays all stored employee records.
-3. Duplicate ID Handling: Prevents duplicate employee IDs using SQLite integrity checks.
-4. Menu-Driven Interface: Provides a simple command-line menu to add employees, view records, or exit.
-5. Persistent Storage: Saves employee records in an SQLite database so they remain available after the program closes.
+1. Employee Account Management: Allows employees to create accounts and log in using their Employee ID and password.
+2. View and Search Records: Displays employee details and searches records by Employee ID or name.
+3. Update and Delete Account: Allows logged-in employees to update their details or permanently delete their own account.
+4. Sorting and Reports: Sorts employees by ID or salary and generates salary statistics and department-wise employee counts.
+5. CSV Export: Exports employee records to a CSV file for reporting and further use.
+6. Input Validation and Security: Validates email, contact number, and salary inputs while securely hashing passwords with unique salts.
 
 ## DATA STRUCTURES AND TECHNOLOGIES USED:
 
-- Classes and Objects: Uses an `Employee` class to represent employee details.
-- Lists: Stores employee objects temporarily in a Python list.
-- SQLite Database: Stores employee records persistently in `employees.db`.
-- SQL Queries: Uses `CREATE TABLE`, `INSERT`, and `SELECT` statements to manage records.
-- Exception Handling: Handles duplicate employee IDs using `sqlite3.IntegrityError`.
+- Classes and Objects: Uses `Node` and `LinkedList` classes to organize and search employee records.
+- Singly Linked List: Stores employee records temporarily for displaying and searching.
+- SQLite Database: Stores employee accounts and details persistently in `employee.db`.
+- SQL Queries: Uses `CREATE TABLE`, `INSERT`, `SELECT`, `UPDATE`, `DELETE`, and aggregate queries to manage records and generate reports.
+- Password Security: Uses `hashlib`, `secrets`, and PBKDF2-HMAC-SHA256 for password hashing and verification.
+- CSV Module: Exports employee records to a CSV file.
+- Exception Handling and Validation: Handles program interruptions and validates user inputs.
 
 ## DATABASE AUTOMATICALLY CREATED:
 
-- employees.db — Stores employee records in the `Employee` table.
-- Table Columns: `emp_id`, `name`, `salary`
+- `employee.db` — Stores employee records in the `employees` table.
+- Table Columns: `employee_id`, `name`, `password_hash`, `salt`, `department`, `designation`, `email`, `contact`, `salary`
+- Export File: `employee_report.csv` — Generated when the user chooses to export the employee report.
 
 ## HOW TO RUN:
 
@@ -30,6 +34,12 @@ A command-line Employee Record Management System built in Python using SQLite da
 3. Open a terminal or command prompt in the project folder.
 4. Run the command:
 
-```
+```bash
 python main.py
 ```
+
+5. Create an employee account, log in, and use the dashboard menu to manage records.
+
+## About
+
+This project demonstrates Python programming, SQLite database management, data structures, password security, input validation, employee record handling, report generation, and CSV file operations through a simple command-line interface.
